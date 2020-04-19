@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import { Component } from '@angular/core'
+import { Product } from '../interfaces/product'
+import { DataService } from '../services/data.service'
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,12 @@ export class HomePage {
 
   refresh(ev) {
     setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
+      ev.detail.complete()
+    }, 3000)
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  getProducts(): Product[] {
+    return this.data.getProducts()
   }
 
 }

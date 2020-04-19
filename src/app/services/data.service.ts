@@ -1,83 +1,52 @@
-import { Injectable } from '@angular/core';
-
-export interface Message {
-  fromName: string;
-  subject: string;
-  date: string;
-  id: number;
-  read: boolean;
-}
+import { Injectable } from '@angular/core'
+import { Product } from '../interfaces/product'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
+  public products: Product[] = [
     {
-      fromName: 'Matt Chorsey',
-      subject: 'New event: Trip to Vegas',
-      date: '9:32 AM',
+      name: 'New event: Trip to Vegas',
       id: 0,
-      read: false
     },
     {
-      fromName: 'Lauren Ruthford',
-      subject: 'Long time no chat',
-      date: '6:12 AM',
+      name: 'Long time no chat',
       id: 1,
-      read: false
     },
     {
-      fromName: 'Jordan Firth',
-      subject: 'Report Results',
-      date: '4:55 AM',
+      name: 'Report Results',
       id: 2,
-      read: false
     },
     {
-      fromName: 'Bill Thomas',
-      subject: 'The situation',
-      date: 'Yesterday',
+      name: 'The situation',
       id: 3,
-      read: false
     },
     {
-      fromName: 'Joanne Pollan',
-      subject: 'Updated invitation: Swim lessons',
-      date: 'Yesterday',
+      name: 'Updated invitation: Swim lessons',
       id: 4,
-      read: false
     },
     {
-      fromName: 'Andrea Cornerston',
-      subject: 'Last minute ask',
-      date: 'Yesterday',
+      name: 'Last minute ask',
       id: 5,
-      read: false
     },
     {
-      fromName: 'Moe Chamont',
-      subject: 'Family Calendar - Version 1',
-      date: 'Last Week',
+      name: 'Family Calendar - Version 1',
       id: 6,
-      read: false
     },
     {
-      fromName: 'Kelly Richardson',
-      subject: 'Placeholder Headhots',
-      date: 'Last Week',
+      name: 'Placeholder Headhots',
       id: 7,
-      read: false
     }
-  ];
+  ]
 
   constructor() { }
 
-  public getMessages(): Message[] {
-    return this.messages;
+  public getProducts(): Product[] {
+    return this.products
   }
 
-  public getMessageById(id: number): Message {
-    return this.messages[id];
+  public getProductById(id: number): Product {
+    return this.products[id]
   }
 }
