@@ -17,10 +17,4 @@ export class ProductDetailComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
     this.product = this.data.getProductById(parseInt(id, 10))
   }
-
-  getBackButtonText() {
-    const win = window as any
-    const mode = win && win.Ionic && win.Ionic.mode
-    return mode === 'ios' ? 'Inbox' : ''
-  }
 }
