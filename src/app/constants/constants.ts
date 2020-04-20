@@ -2,14 +2,15 @@ export const Units = {
   pound: 'lb',
   ounce: 'oz',
   liter: 'L',
+  each: 'each'
 }
 
-export const DefaultStores = [
-  'Sprouts',
-  'Trader Joe\'s',
-  'Natural Grocers',
-  'Smith\'s',
-  'Walmart',
-  'Costco',
-  'Whole Foods',
-]
+export const DefaultStores = {
+  sprouts: 'sprouts',
+  traderJoes: 'Trader Joe\'s',
+  naturalGrocers: 'Natural Grocers',
+  kroger: 'Smith\'s',
+  walmart: 'Walmart',
+  costco: 'Costco',
+  wholeFoods: 'Whole Foods',
+}

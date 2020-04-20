@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { DefaultStores, Units } from '../constants/constants'
 import { Product } from '../models/product'
 
 @Injectable({
@@ -7,37 +8,41 @@ import { Product } from '../models/product'
 export class DataService {
   public products: Product[] = [
     {
-      name: 'New event: Trip to Vegas',
+      name: 'Peanuts',
       id: 0,
+      category: 'bulk',
     },
     {
-      name: 'Long time no chat',
+      name: 'Oatmeal',
       id: 1,
+      category: 'Bulk',
     },
     {
-      name: 'Report Results',
+      name: 'bananas',
       id: 2,
+      category: 'produce',
     },
     {
-      name: 'The situation',
+      name: 'Apple',
       id: 3,
+      category: 'produce',
+      storePrices: [
+        {
+          id: 0,
+          store: DefaultStores.sprouts,
+          price: 1.29,
+          quantity: 1,
+          unit: Units.pound,
+        },
+        {
+          id: 1,
+          store: DefaultStores.kroger,
+          price: 1.50,
+          quantity: 1,
+          unit: Units.pound,
+        },
+      ]
     },
-    {
-      name: 'Updated invitation: Swim lessons',
-      id: 4,
-    },
-    {
-      name: 'Last minute ask',
-      id: 5,
-    },
-    {
-      name: 'Family Calendar - Version 1',
-      id: 6,
-    },
-    {
-      name: 'Placeholder Headhots',
-      id: 7,
-    }
   ]
 
   constructor() { }

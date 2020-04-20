@@ -12,4 +12,5 @@ export interface StorePrice {
   quantity?: number
   unit?: string
   notes?: string
+  organic?: boolean
 }
