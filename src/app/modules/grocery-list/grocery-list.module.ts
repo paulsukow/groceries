@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 
 import { GroceryListComponent } from './grocery-list.component'
-import { ProductComponent } from './product/product.component'
 
 @NgModule({
   imports: [
@@ -21,7 +20,6 @@ import { ProductComponent } from './product/product.component'
   ],
   declarations: [
     GroceryListComponent,
-    ProductComponent
   ]
 })
 export class GroceriesPageModule {}

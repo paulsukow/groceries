@@ -1,25 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
       Groceries
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Groceries
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-content>
   <ion-list>
-    <app-product *ngFor="let product of getProducts()" [product]="product"></app-product>
+    <ion-item button detail *ngFor="let product of getProducts()" [routerLink]="'/product/' + product.id" routerDirection="forward">
+      <ion-label>{{ product.name }}</ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
