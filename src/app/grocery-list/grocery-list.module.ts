@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular'
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 
-import { HomePage } from './home/home.page'
+import { GroceryListComponent } from './grocery-list.component'
 import { ProductComponent } from './product/product.component'
 
 @NgModule({
@@ -15,12 +15,12 @@ import { ProductComponent } from './product/product.component'
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: GroceryListComponent
       }
     ])
   ],
   declarations: [
-    HomePage,
+    GroceryListComponent,
     ProductComponent
   ]
 })

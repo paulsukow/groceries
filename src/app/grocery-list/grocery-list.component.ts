@@ -1,13 +1,13 @@
 import { Component } from '@angular/core'
-import { Product } from '../../interfaces/product'
-import { DataService } from '../../services/data.service'
+import { Product } from '../interfaces/product'
+import { DataService } from '../services/data.service'
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: 'grocery-list.component.html',
+  styleUrls: ['grocery-list.component.scss'],
 })
-export class HomePage {
+export class GroceryListComponent {
   constructor(private data: DataService) {}
 
   refresh(ev) {

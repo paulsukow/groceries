@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
 
 import { ProductDetailComponent } from './product-detail.component'
-import { ViewProductPageRoutingModule } from '../view-product-routing.module'
+import { ViewProductPageRoutingModule } from './product-detail-routing.module'
 
 describe('ViewProductPage', () => {
   let component: ProductDetailComponent
