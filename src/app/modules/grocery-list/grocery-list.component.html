@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-input placeholder="Add Item"></ion-input>
+  </ion-item>
   <ion-list>
     <ion-item button detail *ngFor="let product of getProducts()" [routerLink]="'/product/' + product.id" routerDirection="forward">
       <ion-label>{{ product.name }}</ion-label>
