@@ -1,3 +1,4 @@
+import { createReducer, on } from '@ngrx/store'
 import * as fromGroceriesList from '../actions/groceries-list.action'
 import { DefaultStores, Units } from '../../constants'
 import { Product } from '../models/product'
@@ -47,31 +48,19 @@ export const initialState: GroceriesListState = {
   ]
 }
 
-export function reducer(
-  state = initialState,
-  action: fromGroceriesList.ActionsUnion
-): GroceriesListState {
-  switch (action.type) {
-
-    case fromGroceriesList.ActionTypes.CreateEntity: {
-      return {
-        ...state,
-        data: [...state.data, action.payload.entity]
-      }
-    }
-
-    case fromGroceriesList.ActionTypes.DeleteEntity: {
-      return {
-        ...state,
-        ...state.data.splice(state.data.indexOf(action.payload.entity), 1)
-      }
-    }
-
-    default: {
-      return state
-    }
-  }
-}
+export const reducer = createReducer(
+  initialState,
+  on(fromGroceriesList.createEntity,
+    (state, { entity }) => ({
+      ...state,
+      data: [...state.data, entity]
+  })),
+  on(fromGroceriesList.deleteEntity,
+    (state, { entity }) => ({
+      ...state,
+      ...state.data.splice(state.data.indexOf(entity), 1)
+  })),
+)
 
 export const getCollection = (state: GroceriesListState) => state.data
 export const getEntityById = (state: GroceriesListState, props: { id: number }) =>

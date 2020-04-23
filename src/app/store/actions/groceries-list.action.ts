@@ -1,28 +1,18 @@
-import { Action } from '@ngrx/store'
+import { createAction, props } from '@ngrx/store'
 import { Product as Entity } from '../models/product'
 
-export enum ActionTypes {
-  LoadCollection = '[Groceries List Service] Load Collection',
-  CreateEntity = '[Groceries List Service] Create Entity',
-  DeleteEntity = '[Groceries List Service] Delete Entity',
-}
+const actionType = `Groceries List`
 
-export class LoadCollection implements Action {
-  readonly type = ActionTypes.LoadCollection
+export const loadCollection = createAction(
+  `[${actionType} Service] Load Collection`,
+)
 
-  constructor() {}
-}
+export const createEntity = createAction(
+  `[${actionType} List Service] Create Entity`,
+  props<{ entity: Entity }>(),
+)
 
-export class CreateEntity implements Action {
-  readonly type = ActionTypes.CreateEntity
-
-  constructor(public payload: { entity: Entity }) {}
-}
-
-export class DeleteEntity implements Action {
-  readonly type = ActionTypes.DeleteEntity
-
-  constructor(public payload: { entity: Entity }) {}
-}
-
-export type ActionsUnion = CreateEntity | DeleteEntity | LoadCollection
+export const deleteEntity = createAction(
+  `[${actionType} List Service] Delete Entity`,
+  props<{ entity: Entity }>(),
+)
