@@ -1,5 +1,5 @@
 import * as fromGroceriesList from '../actions/groceries-list.action'
-import { DefaultStores, Units } from '../constants/constants'
+import { DefaultStores, Units } from '../../constants'
 import { Product } from '../models/product'
 
 export interface GroceriesListState {

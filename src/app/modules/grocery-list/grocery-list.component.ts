@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs'
-import { Product } from '../../models/product'
-import { DataService } from '../../services/data.service'
+import { Product } from '../../store/models/product'
+import { GroceriesListService } from '../../store/services/groceries-list/groceries-list.service'
 
 @Component({
   selector: 'app-home',
@@ -9,16 +9,10 @@ import { DataService } from '../../services/data.service'
   styleUrls: ['grocery-list.component.scss'],
 })
 export class GroceryListComponent {
-  constructor(private data: DataService) {}
-
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete()
-    }, 3000)
-  }
+  constructor(private groceriesListService: GroceriesListService) {}
 
   getProducts(): Observable<Product[]> {
-    return this.data.getProducts()
+    return this.groceriesListService.getCollection()
   }
 
 }

@@ -7,9 +7,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx'
 import { StatusBar } from '@ionic-native/status-bar/ngx'
 
 import { AppComponent } from './app.component'
-import { AppRoutingModule } from './app-routing.module';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers'
+import { AppRoutingModule } from './app-routing.module'
+import { StoreModule } from '@ngrx/store'
+import { reducers, metaReducers } from './store/reducers'
 
 @NgModule({
   declarations: [AppComponent],

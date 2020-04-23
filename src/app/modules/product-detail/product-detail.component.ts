@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
-import { Product } from '../../models/product'
-import { DataService } from '../../services/data.service'
+import { Product } from '../../store/models/product'
+import { GroceriesListService } from '../../store/services/groceries-list/groceries-list.service'
 
 @Component({
   selector: 'product-detail',
@@ -12,10 +12,10 @@ import { DataService } from '../../services/data.service'
 export class ProductDetailComponent implements OnInit {
   public product: Observable<Product>
 
-  constructor(private data: DataService, private activatedRoute: ActivatedRoute) { }
+  constructor(private data: GroceriesListService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
-    this.product = this.data.getProductById(parseInt(id, 10))
+    this.product = this.data.getEntityById(parseInt(id, 10))
   }
 }

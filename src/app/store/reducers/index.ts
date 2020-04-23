@@ -1,5 +1,5 @@
 import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store'
-import { environment } from '../../environments/environment'
+import { environment } from '../../../environments/environment'
 import * as fromGroceriesList from './groceries-list.reducer'
 
 export interface State {
@@ -23,4 +23,3 @@ export const getGroceriesListEntityById = createSelector(
 )
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : []
-
