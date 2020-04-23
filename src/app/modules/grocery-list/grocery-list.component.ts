@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { Observable } from 'rxjs'
 import { Product } from '../../models/product'
 import { DataService } from '../../services/data.service'
 
@@ -16,7 +17,7 @@ export class GroceryListComponent {
     }, 3000)
   }
 
-  getProducts(): Product[] {
+  getProducts(): Observable<Product[]> {
     return this.data.getProducts()
   }
 

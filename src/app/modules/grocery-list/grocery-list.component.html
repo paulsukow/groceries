@@ -11,7 +11,7 @@
     <ion-input placeholder="Add Item"></ion-input>
   </ion-item>
   <ion-list>
-    <ion-item button detail *ngFor="let product of getProducts()" [routerLink]="'/product/' + product.id" routerDirection="forward">
+    <ion-item button detail *ngFor="let product of getProducts() | async" [routerLink]="'/product/' + product.id" routerDirection="forward">
       <ion-label>{{ product.name }}</ion-label>
     </ion-item>
   </ion-list>

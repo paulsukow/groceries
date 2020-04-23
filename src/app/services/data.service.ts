@@ -1,57 +1,44 @@
 import { Injectable } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
 import { DefaultStores, Units } from '../constants/constants'
 import { Product } from '../models/product'
+import { getGroceriesListCollection, getGroceriesListEntityById, getGroceriesListState, State } from '../reducers'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public products: Product[] = [
-    {
-      name: 'Peanuts',
-      id: 0,
-      category: 'bulk',
-    },
-    {
-      name: 'Oatmeal',
-      id: 1,
-      category: 'Bulk',
-    },
-    {
-      name: 'bananas',
-      id: 2,
-      category: 'produce',
-    },
-    {
-      name: 'Apple',
-      id: 3,
-      category: 'produce',
-      storePrices: [
-        {
-          id: 0,
-          store: DefaultStores.sprouts,
-          price: 1.29,
-          quantity: 1,
-          unit: Units.pound,
-        },
-        {
-          id: 1,
-          store: DefaultStores.kroger,
-          price: 1.50,
-          quantity: 1,
-          unit: Units.pound,
-        },
-      ]
-    },
-  ]
+  public groceriesList: Observable<Product[]>
 
-  constructor() { }
-
-  public getProducts(): Product[] {
-    return this.products
+  constructor(private store: Store<State>) {
+    this.groceriesList = this.store.select(getGroceriesListCollection)
   }
 
-  public getProductById(id: number): Product {
-    return this.products[id]
+  public getProducts(): Observable<Product[]> {
+    return this.store.select(getGroceriesListCollection)
   }
+
+  public getProductById(id: number): Observable<Product> {
+    return this.store.select(getGroceriesListEntityById, {
+      id,
+    })
+  }
+//   createNote(title): void {
+//     let id = Math.random()
+//       .toString(36)
+//       .substring(7);
+//
+//     let note = {
+//       id: id.toString(),
+//       title: title,
+//       content: ""
+//     };
+//
+//     this.store.dispatch(new NoteActions.CreateNote({ note: note }));
+//   }
+//
+//   deleteNote(note): void {
+//     this.store.dispatch(new NoteActions.DeleteNote({ note: note }));
+//   }
 }
