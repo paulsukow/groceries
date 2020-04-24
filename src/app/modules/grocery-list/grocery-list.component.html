@@ -8,7 +8,12 @@
 
 <ion-content>
   <ion-item>
-    <ion-input placeholder="Add Item"></ion-input>
+    <ion-input placeholder="Add Item" [(ngModel)]="newItemInput"  (keyup.enter)="triggerAddNewItem()"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="triggerAddNewItem()">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-item>
   <ion-list>
     <ion-item button detail *ngFor="let product of getProducts() | async" [routerLink]="'/product/' + product.id" routerDirection="forward">

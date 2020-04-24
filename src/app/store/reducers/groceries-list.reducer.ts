@@ -11,33 +11,33 @@ export const initialState: GroceriesListState = {
   data: [
     {
       name: 'Peanuts',
-      id: 0,
+      id: '0',
       category: 'bulk',
     },
     {
       name: 'Oatmeal',
-      id: 1,
+      id: '1',
       category: 'Bulk',
     },
     {
       name: 'bananas',
-      id: 2,
+      id: '2',
       category: 'produce',
     },
     {
       name: 'Apple',
-      id: 3,
+      id: '3',
       category: 'produce',
       storePrices: [
         {
-          id: 0,
+          id: '0',
           store: DefaultStores.sprouts,
           price: 1.29,
           quantity: 1,
           unit: Units.pound,
         },
         {
-          id: 1,
+          id: '1',
           store: DefaultStores.kroger,
           price: 1.50,
           quantity: 1,
@@ -63,5 +63,5 @@ export const reducer = createReducer(
 )
 
 export const getCollection = (state: GroceriesListState) => state.data
-export const getEntityById = (state: GroceriesListState, props: { id: number }) =>
+export const getEntityById = (state: GroceriesListState, props: { id: string }) =>
   state.data.find(entity => entity.id === props.id)

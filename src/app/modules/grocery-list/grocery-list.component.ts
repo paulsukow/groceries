@@ -9,10 +9,28 @@ import { GroceriesListService } from '../../store/services/groceries-list/grocer
   styleUrls: ['grocery-list.component.scss'],
 })
 export class GroceryListComponent {
+
+  newItemInput = ''
+
   constructor(private groceriesListService: GroceriesListService) {}
 
-  getProducts(): Observable<Product[]> {
+  public getProducts(): Observable<Product[]> {
     return this.groceriesListService.getCollection()
   }
 
+  // todo change to reactive forms
+  public triggerAddNewItem(): void {
+    this.addProduct(this.newItemInput)
+    this.clearInput()
+  }
+
+  private addProduct(itemName: string): void {
+    if (itemName) {
+      this.groceriesListService.createEntity(itemName)
+    }
+  }
+
+  private clearInput(): void {
+    this.newItemInput = ''
+  }
 }

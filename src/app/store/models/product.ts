@@ -1,12 +1,12 @@
 export interface Product {
-  id: number
+  id: string
   name: string
   category?: string
   storePrices?: StorePrice[]
 }
 
 export interface StorePrice {
-  id: number
+  id: string
   store: string,
   price: number
   quantity?: number
