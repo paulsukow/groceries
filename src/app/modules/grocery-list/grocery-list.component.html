@@ -16,8 +16,20 @@
     </ion-buttons>
   </ion-item>
   <ion-list>
-    <ion-item button detail *ngFor="let product of getProducts() | async" [routerLink]="'/product/' + product.id" routerDirection="forward">
-      <ion-label>{{ product.name }}</ion-label>
+    <ion-item button detail *ngFor="let product of getProducts() | async">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label [routerLink]="'/product/' + product.id" routerDirection="forward">{{ product.name }}</ion-label>
     </ion-item>
   </ion-list>
+<!--  <ion-item-group>-->
+    <ion-label class="ion-padding">Cart</ion-label>
+    <ion-list>
+    <ion-item button detail *ngFor="let product of getProducts() | async">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label [routerLink]="'/product/' + product.id" routerDirection="forward">{{ product.name }}</ion-label>
+    </ion-item>
+    </ion-list>
+<!--  </ion-item-group>-->
+
+
 </ion-content>

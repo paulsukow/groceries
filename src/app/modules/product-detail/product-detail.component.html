@@ -10,7 +10,55 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="product | async">
-  <div class="ion-padding">
-    <h1>{{ (product | async).name }}</h1>
-  </div>
+    <div>{{ (product | async).name }}</div>
+    <div>{{ (product | async).category }}</div>
+    <prices></prices>
+
+<!--    <ion-grid>-->
+<!--      <ion-row>-->
+<!--        <ion-col>Store</ion-col>-->
+<!--        <ion-col>Price/Unit</ion-col>-->
+<!--        <ion-col>Organic</ion-col>-->
+<!--        <ion-col>Notes</ion-col>-->
+<!--      </ion-row>-->
+<!--      <ion-row>-->
+<!--        <ion-col>Smiths</ion-col>-->
+<!--        <ion-col>$2/lb</ion-col>-->
+<!--        <ion-col>False</ion-col>-->
+<!--        <ion-col>Bulk bins</ion-col>-->
+<!--      </ion-row>-->
+<!--      <ion-row>-->
+<!--        <ion-col>Trader Joe's</ion-col>-->
+<!--        <ion-col>$3/lb</ion-col>-->
+<!--        <ion-col>False</ion-col>-->
+<!--        <ion-col>Pre packaged</ion-col>-->
+<!--      </ion-row>-->
+<!--      <ion-row>-->
+<!--        <ion-col>Natural Grocers</ion-col>-->
+<!--        <ion-col>$4/lb</ion-col>-->
+<!--        <ion-col>True</ion-col>-->
+<!--        <ion-col>Pre packaged</ion-col>-->
+<!--      </ion-row>-->
+<!--    </ion-grid>-->
+<!--    <div>-->
+<!--      <div>Store Prices</div>-->
+<!--      <span>Smiths</span>-->
+<!--      <span>$2/lb</span>-->
+<!--      <span>Organic: False</span>-->
+<!--      <span>Pre Packaged</span>-->
+<!--    </div>-->
 </ion-content>
+
+
+
+
+
+<!--export interface StorePrice {-->
+<!--id: string-->
+<!--store: string,-->
+<!--price: number-->
+<!--quantity?: number-->
+<!--unit?: string-->
+<!--notes?: string-->
+<!--organic?: boolean-->
+<!--}-->
